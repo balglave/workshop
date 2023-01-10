@@ -1,0 +1,1489 @@
+---
+title: "Stats"
+date: "Décembre 2022"
+author: "B. Alglave"
+output:
+  beamer_presentation:
+    theme: "Boadilla"
+    slide_level: 3
+    colortheme: "default"
+    includes:
+      in_header: header-simple.tex
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+library(corrplot)
+library(dplyr)
+library(fields)
+library(geoR)
+library(ggplot2)
+library(INLA)
+library(mapdata)
+library(maps)
+library(paletteer)
+library(plot.matrix)
+library(sf)
+library(sp)
+library(splancs)
+library(tidyr)
+
+run_simu <- F
+
+# Map
+mapBase <- map("worldHires", fill = T, plot = F)
+mapBase <- st_as_sf(mapBase) %>% filter(ID %in% c("France","Spain","UK","Ireland"))
+grid_projection <- "+proj=longlat +datum=WGS84"
+
+
+```
+
+
+
+# Introduction
+
+All ecological processes have a spatial and a spatio-temporal dimension:
+\vspace{\baselineskip}
+ 
+\begin{itemize}
+
+\pause
+
+\item species distribution vary along the year following the season, the life stage, etc. \vspace{\baselineskip}
+
+\item ecosystem productivity is heterogeneous in space and time \vspace{\baselineskip}
+
+\item climatic variables evolve in response to climate change \vspace{\baselineskip}
+
+\end{itemize}
+
+\pause
+
+\ding{224} \textbf{There is a need to develop mathematical tools to study/understand/model these processes}
+
+
+---
+
+\begin{center}
+
+\textbf{Examples:} what are the ecological processes we would like to infer from these data? \vspace{\baselineskip}
+
+\includegraphics[width=0.6\linewidth]{"images/co2.png"}
+
+\end{center}
+
+---
+
+```{r,include=F}
+
+# EVHOE data
+load("data/EVHOE_2008_2019.RData")
+
+# Haul data
+Haul_df <- Save_Datras$datras_HH.full %>%
+  dplyr::select(Year,long,lati,StNo,HaulNo,Depth)
+
+# Extent of the EVHOE domain
+xlims <- range(pretty(Haul_df$long))
+ylims <- range(pretty(Haul_df$lati))
+
+# Catch data
+Catch_df <- Save_Datras$datras_sp.HL.full %>%
+  group_by(Year,long,lati,StNo,HaulNo,scientificname) %>%
+  dplyr::summarise(CatchWgt = CatCatchWgt)
+
+# Join with haul data to add missing hauls to catch data
+Catch_df_2 <- full_join(Catch_df,Haul_df) %>%
+  filter(scientificname == "Argentina_sphyraena")
+Catch_df_2$CatchWgt[which(is.na(Catch_df_2$CatchWgt))] <- 0
+
+# Plot
+Evhoe_plot <- ggplot(Catch_df_2)+
+  geom_point(aes(x=long,y=lati,col=CatchWgt))+
+  scale_color_distiller(palette="Spectral",trans="log10")+
+  facet_wrap(.~Year)+
+  geom_sf(data=mapBase)+
+  coord_sf(xlim = xlims, ylim = ylims, expand = FALSE)+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 90),
+        plot.title = element_text(hjust = 0.5,face = "bold",size=14),
+        panel.spacing.x = unit(4, "mm"))+
+  ggtitle("Argentina sphyraena (EVHOE)")+
+  ylab("")+xlab("")
+
+```
+
+
+```{r,warning=F}
+
+plot(Evhoe_plot)
+
+```
+
+## Data and ecological processes
+
+
+\vspace{\baselineskip}
+
+What are the characteristics of these data?
+
+\onslide<2-4>{
+
+\begin{itemize}
+
+\item They arise from the ecological process of interest (= they are \textbf{conditionnal} on the ecological process)
+
+\item \textbf{Noisy} (= they are not perfect observations of the ecological process)
+
+\item \textbf{Sparse} (= they do not cover the full area and some hypothesis need to be set to predict the ecological process between the sampled locations)
+
+\end{itemize}
+
+}
+
+\vspace{\baselineskip}
+
+What are the characteristics of the ecological process we want to infer?
+
+\onslide<3-4>{
+
+\begin{itemize}
+
+\item \textbf{Hidden} or \textbf{latent}
+
+\item \textbf{Structured} (relations that structure the process?)
+
+\end{itemize}
+
+}
+
+\vspace{\baselineskip}
+
+How to relate the data to the ecological process?
+
+\vspace{\baselineskip}
+
+\onslide<4>{
+
+\begin{center}
+\ding{224} \textbf{Hierarchical modeling}
+\end{center}
+
+}
+
+
+## Hierarchical models
+
+\begin{center}
+
+\includegraphics[width=0.8\linewidth]{"images/dag_ssm.png"}
+
+\end{center}
+
+\vspace{\baselineskip}
+
+---
+
+\begin{center}
+\textbf{\underline{Observation process}}
+\end{center}
+
+$$\mathbf{Y} | \mathbf{S},\boldsymbol{\theta}_{obs} \sim \mathcal{L}(\mathbf{S},\boldsymbol{\theta}_{obs})$$
+
+$\mathbf{Y}$: observations
+
+$\mathbf{S}$: latent field
+
+$\mathcal{L}$: probability distribution of $\mathbf{Y}$
+
+$\boldsymbol{\theta}_{obs}$: observation parameters
+
+\vspace{\baselineskip}
+
+\pause
+
+\begin{center}
+\textbf{\underline{Hidden process}}
+\end{center}
+
+$$\mathbf{S} | \boldsymbol{\theta}_{process} \sim \mathcal{F}(\boldsymbol{\theta}_{process})$$
+
+$\mathcal{F}$: probability distribution of $\mathbf{S}$
+
+$\boldsymbol{\theta}_{process}$: process parameters
+
+\vspace{\baselineskip}
+
+\ding{224} \textbf{How to specify such model for space-time applications?}
+
+\ding{224} \textbf{What are the specificities of spatial and spatio-temporal models?}
+
+
+# Basis of spatio-temporal statistical modeling
+
+Linear models are basis of statistical models. \vspace{\baselineskip}
+
+For instance, in the case of EVHOE data for Argentina sphyraena, let's assume that species spatio-temporal distribution  $\mathbf{S}$ vary in space ($x$), time ($t$) and depends on a quadratic effect of depth.
+
+$$\log(Y_i)  \overset{i.i.d}{\sim} \mathcal{N}(S(x_i,t_i),\sigma^2)$$
+
+$$S(x,t)=\mu + \beta_1 \cdot \text{Depth}(x) + \beta_2 \cdot (\text{Depth}(x)) ^ 2$$
+
+\begin{center}
+or alternatively,
+\end{center}
+
+$$\log(Y_i) = \mu + \beta_1 \cdot \text{Depth}(x_i) + \beta_2 \cdot (\text{Depth}(x_i)) + \epsilon_i$$
+
+$$\epsilon_i \overset{i.i.d}{\sim} \mathcal{N}(0,\sigma^2)$$
+
+```{r,include=F}
+
+# Linear model on positive values
+Catch_df_3 <- Catch_df_2 %>%
+  filter(CatchWgt > 0) %>%
+  filter(!is.na(Depth)) %>%
+  mutate(Depth2 = Depth^2)
+
+# Quadratic effect on depth
+lm1 <- lm(data=Catch_df_3,log(CatchWgt) ~ Depth + Depth2)
+Catch_df_3$residuals <- lm1$residuals
+
+# Plot quadratic effect
+vec_depth <- 0:600
+trend_term <- lm1$coefficients[1] + lm1$coefficients[2] * vec_depth + lm1$coefficients[3] * vec_depth^2
+depth_df <- data.frame(depth=vec_depth,effect=trend_term)
+depth_plot <- ggplot(data=depth_df,
+       aes(x=vec_depth,y=trend_term))+
+  geom_point()+
+  theme_bw()+
+  ggtitle("Depth effect")+
+    theme(plot.title = element_text(hjust = 0.5,face = "bold",size=26),
+          axis.title = element_text(size=22),axis.text = element_text(size=14))+
+  ylab("log(catch weight)")+xlab("Depth (m)")
+
+# Plot residuals
+residuals_plot <- ggplot(Catch_df_3)+
+  geom_point(aes(x=long,y=lati,col=residuals))+
+  scale_color_distiller(palette="Spectral")+
+  facet_wrap(.~Year)+
+  geom_sf(data=mapBase)+
+  coord_sf(xlim = xlims, ylim = ylims, expand = FALSE)+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 90),
+        plot.title = element_text(hjust = 0.5,face = "bold",size=20),
+        legend.title = element_blank(),
+        panel.spacing.x = unit(4, "mm"))+
+  ggtitle("Residuals of the linear model")+
+  ylab("")+xlab("")
+
+```
+
+---
+
+```{r,fig.align='center',out.width="75%"}
+
+plot(depth_plot)
+
+```
+
+---
+
+However, the i.i.d hypothesis is rarely satisfied in a spatio-temporal context as there can be spatio-temporal correlation structures in the residuals. \vspace{\baselineskip}
+
+```{r,out.width="90%",fig.align='center'}
+
+plot(residuals_plot)
+
+```
+
+## Accounting for spatial and spatio-temporal dependencies
+
+\vspace{\baselineskip}
+
+  \ding{224} Introduce a Gaussian field ($\mathcal{GF}$) $\boldsymbol{\delta}$ in the hierarchical framework that captures spatial / spatio-temporal correlation
+
+\vspace{\baselineskip}
+
+$$\log(Y_i)  \overset{i.i.d}{\sim} \mathcal{N}(S(x_i,t_i),\sigma^2)$$
+
+$$S(x,t)=\mu + \beta_1 \cdot \text{Depth}(x) + \beta_2 \cdot \text{Depth}(x) ^ 2 + \delta(x,t)$$
+
+$$\boldsymbol{\delta} \sim \mathcal{GF}(0, \mathcal{C}(x, y ; t, r))$$
+
+with $\mathcal{C}(x, y ; t, r)$ the spatio-temporal covariance function that controls the structure of $\boldsymbol{\delta}$
+
+
+## Defining a Gaussian Field
+
+\begin{center}
+\textbf{What is a Gaussian field?}
+\end{center}
+
+\vspace{\baselineskip}
+
+Simulation of a spatio-temporal Gaussian random field
+
+```{r,include=F}
+
+# Functions to simulate Gaussian fields
+source("functions/sim_GF_Matern.R")
+
+if(run_simu){
+  source("r/simu.R")
+  list_simu <- list(S_x.t=S_x.t,loc_x=loc_x,n_step=n_step)
+  save(data = list_simu, file = "res/list_simu.RData")
+}else{
+  load("res/list_simu.RData")
+  S_x.t <- list_simu$S_x.t
+  loc_x <- list_simu$loc_x
+  n_step <- list_simu$n_step
+}
+
+```
+
+
+```{r,fig.asp=1/3}
+
+# Plot latent field
+par(mfrow = c(1, 3), mar = c(0, 0, 0.7, 0))
+logS_x.t <- log(S_x.t)
+logS_x.t.min <- min(as.vector(logS_x.t))
+logS_x.t.max <- max(as.vector(logS_x.t))
+logS_x.t.range <- logS_x.t.max - logS_x.t.min
+c100 <- paletteer_c("ggthemes::Orange-Blue Diverging", 100)
+for (j in 1:n_step){
+  cols <- c100[1 + round(100 * (logS_x.t[, j] - logS_x.t.min)) / logS_x.t.range ]
+  plot(loc_x[,c("x","y")], col = cols, axes = FALSE, asp = 1, pch = 19, cex = 1.5,
+       main = paste0("Time: ", j))
+}
+
+```
+
+\vspace{\baselineskip}
+
+Probability density function of a multivariate Normal distribution:
+
+$$
+f_{MN}(\delta_1,...,\delta_n)=(2 \pi)^{-n / 2}|\mathbf{\Sigma}|^{-1 / 2} \exp \left(-\frac{1}{2}\boldsymbol{\delta}^T \boldsymbol{\Sigma}^{-1}\boldsymbol{\delta}\right)
+$$
+
+
+---
+
+\begin{center}
+\textbf{What is a covariance function?}
+\end{center}
+
+---
+
+\small
+
+\begin{columns}
+\begin{column}{0.75\textwidth}
+
+\begin{center}
+\textbf{Variance}
+\end{center}
+
+For a random variable $X$: \\
+
+$$
+\begin{aligned}
+\operatorname{Var}(X) & =\mathrm{E}\left[(X-\mathrm{E}[X])^2\right] \\
+& =\mathrm{E}\left[X^2\right]-\mathrm{E}[X]^2
+\end{aligned}
+$$
+
+\ding{224} Measure of dispersion. How far a set of numbers is spread out from their average value?
+
+\pause
+
+\vspace{\baselineskip}
+
+\begin{center}
+\textbf{Covariance}
+\end{center}
+
+We define 2 random variables $X$ and $Y$. \\
+
+$$
+\operatorname{Cov}(X, Y) \equiv \mathrm{E}[(X-\mathrm{E}[X])(Y-\mathrm{E}[Y])]
+$$
+
+\ding{224} Measure of the joint variability of two random variables. \\
+
+\pause
+
+\vspace{\baselineskip}
+
+The \textbf{correlation coefficient} is a normalized measure of the covariance.
+
+$$
+\rho_{X, Y}=\frac{\operatorname{cov}(X, Y)}{\sigma_X \sigma_Y}
+$$
+
+\end{column}
+
+\begin{column}{0.25\textwidth}
+
+\includegraphics[width=3cm]{images/cov_image.png}
+
+\end{column}
+
+\end{columns}
+
+---
+
+
+\begin{center}
+\textbf{Variance-covariance matrix}
+\end{center}
+
+\vspace{\baselineskip}
+
+For a vector of $p$ random variables $\mathbf{X}=(X_1,...,X_p)$:
+
+$$
+\operatorname{Var}(\mathbf{X})=\left(\begin{array}{cccc}
+\operatorname{Var}\left(X_1\right) & \operatorname{Cov}\left(X_1, X_2\right) & \cdots & \operatorname{Cov}\left(X_1, X_p\right) \\
+\operatorname{Cov}\left(X_2, X_1\right) & \ddots & \cdots & \vdots \\
+\vdots & \vdots & \ddots & \vdots \\
+\operatorname{Cov}\left(X_p, X_1\right) & \cdots & \cdots & \operatorname{Var}\left(X_p\right)
+\end{array}\right)
+$$
+
+\vspace{\baselineskip}
+
+The correlation matrix is the normalized version of the covariance matrix.
+
+\vspace{\baselineskip}
+
+$\operatorname{Var}(\mathbf{X})^{-1}$ is the precision matrix.
+
+
+---
+
+\begin{center}
+\textbf{Correlation matrix for the catch weights \\ of the 15 most abundant species of EVHOE data} \vspace{\baselineskip}
+\end{center}
+
+```{r,out.width="85%",fig.align='center',warning=F}
+
+filter_spp <- Catch_df %>%
+  group_by(scientificname) %>%
+  dplyr::summarise(CatchWgt = sum(CatchWgt)) %>%
+  arrange(desc(CatchWgt)) %>%
+  dplyr::select(-CatchWgt) %>%
+  as.vector %>% unlist
+
+filter_spp <- filter_spp[1:15]
+
+corr_df <- Catch_df %>%
+  filter(scientificname %in% filter_spp) %>%
+  pivot_wider(names_from = scientificname,
+              values_from = CatchWgt,
+              values_fn = mean) %>%
+  ungroup %>%
+  dplyr::select(-Year:-HaulNo)
+
+corr_df <- as.matrix(corr_df)
+
+corr_df[which(is.na(corr_df))] <- 0
+
+res <- cor(corr_df)
+diag(res) <- 0
+
+corrplot(res, type = "upper", order = "hclust",
+         tl.col = "black", tl.srt = 45,tl.cex = 1, diag = F,
+         col.lim=c(min(res),max(res)),
+         col=colorRampPalette(c("blue","white","red"))(200))
+
+```
+
+<!-- --- -->
+
+<!-- \begin{center} -->
+<!-- \textbf{Correlation matrix of the simulated latent field (first time step) computed relatively to the y-coordinates} \vspace{\baselineskip} -->
+<!-- \end{center} -->
+
+
+```{r,warning=F,out.width="75%",fig.align='center',include=F}
+
+loc_x_2 <- loc_x
+loc_x_2$x <- as.character(loc_x_2$x)
+loc_x_2$y <- as.character(loc_x_2$y)
+
+S_x1_df <- cbind(loc_x_2[,c("x","y")],S_x = S_x.t[,1]) %>%
+  tidyr::pivot_wider(values_from = S_x,names_from = y) %>%
+  dplyr::select(-x)
+
+corr_S_x1_df <- cor(S_x1_df)
+corr_S_x1_df <- as.data.frame(corr_S_x1_df)
+corr_S_x1_df$y1 <- 1:50
+corr_S_x2_df <- corr_S_x1_df %>%
+  pivot_longer(1:50) %>%
+  rename(y2 = name)
+
+corr_S_x2_df$y1 <- as.numeric(corr_S_x2_df$y1)
+corr_S_x2_df$y2 <- as.numeric(corr_S_x2_df$y2)
+
+plot_corr <- ggplot(corr_S_x2_df, aes(x = y1, y = y2)) + 
+  geom_raster(aes(fill=value)) + 
+  scale_fill_gradient2(low="blue", high="red", mid = "white") +
+  labs(x="y", y="y") +
+  theme_classic() + 
+  theme(legend.title = element_blank(),
+        axis.text.x=element_text(size=9, angle=0, vjust=0.3),
+        axis.text.y=element_text(size=9),
+        plot.title=element_text(size=11),
+        aspect.ratio = 1)
+
+plot(plot_corr)
+
+```
+
+<!-- \begin{center} -->
+<!-- \ding{224} But this is not yet a variance-covariance matrix similar as the one used to model spatial or spatio-temporal correlation -->
+<!-- \end{center} -->
+
+
+## Spatial variance-covariance
+
+Let's consider the random effect $\delta(x,t)$ at a given time step $t$ that we rewrite $\delta(x)$.
+
+The spatial variance-covariance matrix of $\delta(x)$ can be written:
+
+\scriptsize
+
+$$
+\operatorname{Var}(\boldsymbol{\delta}(.))=\left(\begin{array}{cccc}
+\operatorname{Var}\left(\delta(x_1)\right) & \operatorname{Cov}\left(\delta(x_1), \delta(x_2) \right) & \cdots & \operatorname{Cov}\left(\delta(x_1), \delta(x_n) \right) \\
+\operatorname{Cov}\left(\delta(x_2), \delta(x_1) \right) & \ddots & \cdots & \vdots \\
+\vdots & \vdots & \ddots & \vdots \\
+\operatorname{Cov}\left(\delta(x_n), \delta(x_1)\right) & \cdots & \cdots & \operatorname{Var}\left(\delta(x_n)\right)
+\end{array}\right)
+$$
+
+\small
+
+\vspace{\baselineskip}
+
+\begin{center}
+\ding{224} \textbf{No spatial representation of the covariance matrix per se}
+\end{center}
+
+\vspace{\baselineskip}
+
+The spatial dependencies between the values of $\boldsymbol{\delta}(.)$ is modeled through a variance-covariance function $\mathcal{C}(x, y)$ (spatial only here).
+
+\vspace{\baselineskip}
+
+Some base properties are required to define a spatial covariance function.
+
+---
+
+\small
+
+\begin{center}
+\textbf{Necessary properties for spatial covariance matrix}
+\end{center}
+
+\vspace{\baselineskip}
+
+\underline{\textit{Non-negative and positive-definiteness}}
+
+\vspace{\baselineskip}
+
+A function $\{\mathcal{C}(x,y):x,y\in D\}$ defined on $D$ is said to be \textbf{non-negative-definite}, if for any complex numbers $\{a_i:i=1,...,m\}$, any $\{x_i:i=1,...,m\}$ in $D$, and any integer $m$, we have 
+
+$$\sum^m_{i=1}\sum^m_{j=1}a_i \bar{a}_j \mathcal{C}(x_i,x_j) \geq 0$$
+
+where $\bar{a}$ denotes the complex conjugate of $a$.
+
+\vspace{\baselineskip}
+
+To be $valid$, a covariance function must be non-negative definite.
+
+\vspace{\baselineskip}
+
+A function is \textbf{positive-definite} when the inequality below is strictly positive whenever $(a_1,...,a_m)'$ is a nonzero vector.
+
+---
+
+\small
+
+\begin{center}
+\textbf{Additionnal (convenient) properties for spatial covariance matrix}
+\end{center}
+
+\vspace{\baselineskip}
+
+\underline{\textit{Stationarity}}
+
+There are 2 main kinds of stationarity: strong and second-order (or weak) stationarity.
+
+- $\delta(x)$ is strongly stationary when the two probability measures defining $\delta(x)$ and $\delta(x+h)$ are equivalent for all $h \in \mathbb{R}^d$.
+
+- $\delta(x)$ is second-order (or weakly) stationary when it has a constant expectation and a stationary covariance function.
+
+\vspace{\baselineskip}
+
+\underline{\textit{Isotropy}}
+
+Spatial isotropy corresponds to $Cov(\delta(x),\delta(y)) \equiv \mathcal{C}(\|x-y\|)$
+
+\vspace{\baselineskip}
+
+\underline{\textit{Intrinsic}}
+
+$\delta(x)$ is intrinsic if for all $(x) \in \mathbb{R}^d$, $h \in \mathbb{R}$, $\delta(x+h)+\delta(x)$ is second-ordered stationary (constant expectation and stationary covariance).
+
+---
+
+\begin{center}
+\textbf{Some examples of isotropic covariance functions}
+\includegraphics[width=0.8\linewidth]{"images/covariogram.png"}
+\end{center}
+
+---
+
+Another (more general) way to define spatial structure is to define the \textbf{covariogram} $Var(Y(x) - Y(y)) = 2 \gamma(x,y)$ (with $\gamma()$ the \textbf{semivariogram}) and its stationary version $2\gamma(h) = 2 (\mathcal{0} - \mathcal{h});h\in\mathbb{R}$.
+
+\vspace{\baselineskip}
+
+\begin{center}
+\includegraphics{"images/semivariogram.png"}
+\end{center}
+
+---
+
+\begin{center}
+\textbf{Some examples of isotropic variograms}
+\includegraphics[width=0.75\linewidth]{"images/semivariogram_eq.png"}
+\end{center}
+
+---
+
+```{r,include=F}
+
+set.seed(2)
+
+cov_models <- c("pure.nugget",
+                "gaussian",
+                "matern",
+                "spherical",
+                "powered.exponential",
+                "wave")
+
+for(i in 1:length(cov_models)){
+  
+  cov_models_i <- cov_models[i]
+  sim1 <- grf(1,as.matrix(loc_x[,c("x","y")]),cov.pars = c(1, 10),cov.model = cov_models_i)
+  
+  if(i == 1){
+    sim1_df_full <- data.frame(sim1$coords,simu = sim1$data, cov_name = cov_models_i)
+  }else{
+    sim1_df <- data.frame(sim1$coords,simu = sim1$data, cov_name = cov_models_i)
+    sim1_df_full <- rbind(sim1_df_full,sim1_df)
+  }
+  
+  
+}
+
+sim1_df_full$cov_name <- factor(sim1_df_full$cov_name,levels = cov_models)
+
+lf_plot <- ggplot(sim1_df_full)+
+  geom_point(aes(x=x,y=y,col=simu),size=1,shape=15)+
+  scale_color_distiller(palette = "Spectral")+
+  facet_wrap(.~cov_name,nrow = 2)+
+  theme_void()+
+  theme(aspect.ratio = 1,
+        legend.title = element_blank())
+
+## semi-variogram
+# Careful with parameters interpretation
+# --> not necessarily the same meaning for all functions
+tau <- 0
+phi <- 0.5
+nu <- 3/2
+sigma <- 1
+
+fun.gaussian <- function(h) tau^2 + sigma^2 * (1 - exp(-phi^2 * h^2))
+fun.matern <- function(h) sigma^2 * geoR::matern(0,phi = phi) - sigma^2 * geoR::matern(h,phi = phi, kappa = 2)
+fun.spherical_1 <- function(h){
+  tau^2 + sigma^2 * (3/2 * phi * h - 1/2 * (phi * h)^3)
+}
+fun.spherical_2 <- function(h){
+  tau^2 + sigma^2
+}
+fun.powered.exponential <- function(h) tau^2 + sigma^2 * (1 - exp(-abs(phi * h)^1))
+fun.wave <- function(h) tau^2 + sigma^2 * (1 - sin(phi * h) / (phi * h))
+
+semivar_plot <- ggplot(data = data.frame(x = 0), mapping = aes(x = x))+
+  stat_function(fun = fun.gaussian,col="blue",size=1)+
+  stat_function(fun = fun.matern,col="red",size=1)+
+  stat_function(fun = fun.spherical_1,col="grey",size=1,xlim = c(0,1/phi))+
+  stat_function(fun = fun.spherical_2,col="grey",size=1,xlim = c(1/phi,25))+
+  stat_function(fun = fun.powered.exponential,col="green",size=1)+
+  stat_function(fun = fun.wave,col="orange",size=1)+
+  xlim(0,25)+
+  theme_bw()+
+  theme(aspect.ratio = 1/2)+
+  geom_text(label= "Gaussian",aes(x=15,y=0.4),col="blue")+
+  geom_text(label= "Matérn",aes(x=15,y=0.5),col="red")+
+  geom_text(label= "Spherical",aes(x=15,y=0.6),col="grey")+
+  geom_text(label= "Powered exponential",aes(x=15,y=0.7),col="green")+
+  geom_text(label= "Wave",aes(x=15,y=0.8),col="orange")+
+  xlab("h")+ylab("")
+
+```
+
+```{r,out.width="100%",fig.align='center',warning=F}
+
+cowplot::plot_grid(lf_plot,NULL,semivar_plot,ncol=1,rel_heights = c(1,0.1,1))
+
+```
+
+
+## Moving to spatio-temporal
+
+The ideas are similar, but we add temporal correlations in the expression of the random effect $\boldsymbol{\delta}$.
+
+\pause
+
+\vspace{\baselineskip}
+
+\scriptsize
+
+For instance, let's introduce the model:
+
+$$\delta(x,t)=\varphi \cdot \delta(x,t-1) + \omega(x,t) \text{ for } t = 2,...,T$$
+
+- $\varphi \in ]-1;1[$ is the autoregressive temporal term
+
+- $\omega(x,t)$ is a purely spatial GRF
+
+- $\omega(x,1)$ derives from the stationary distribution $\mathcal{N}(0,\sigma^2 / (1 - \varphi ^ 2))$
+
+\pause
+
+$$
+\mathcal{C}\left(\omega\left(x, t\right), \omega\left(y, r\right)\right)= \begin{cases}0 & \text { if } t \neq r \\ \sigma_\omega^2 \cdot Cor(h) & \text { if } t=r \end{cases} \quad \text{ for } x \ne y
+$$
+
+where $h = ||x-y|| \in \mathbb{R}$ and $Cor(h)$ is the Matérn correlation function.
+
+\pause
+
+\vspace{\baselineskip}
+
+The variance-covariance matrix can be written as:
+
+$$
+\mathcal{C}\left(\delta\left(x, t\right), \delta\left(y, r\right)\right)= \frac{\varphi^{|t-r|}}{1-\varphi^2} \sigma_\omega^2 Cor(h)
+$$
+
+with $|t-r|$ the time lag between time step $t$ and $r$.
+
+---
+
+Such kind of process is:
+
+- stationary: $\mathcal{C}(x,y;t,r) = \mathcal{C}(h,\tau)$ with $h=||x-y||$ and $\tau=|t-r|$.
+
+- separable: $\mathcal{C}(h,\tau)=\mathcal{C}^{(x)}(h) \cdot \mathcal{C}^{(t)}(\tau)$
+
+- fully symmetric: $cov(\delta(x,t);\delta(y,r))=cov(\delta(y,t);\delta(x,r))$
+
+\vspace{\baselineskip}
+
+\ding{224} But other non-separable covariance function exist and might be desirable to model complex interactions between spatial and temporal correlations.
+
+\pause
+
+\vspace{\baselineskip}
+
+\begin{center}
+\includegraphics[width=0.9\linewidth]{"images/plot_separability.png"} 
+
+\small Separable covariance function (left) vs. non-separable covariance function (right)
+\end{center}
+
+# Inference method
+
+## Kriging
+
+Basis of geostatistics \ding{224} Minimum mean-squared error approach
+
+\pause
+
+\vspace{\baselineskip}
+
+Let's define observations $\mathbf{Y}=(Y_1,Y_2,...,Y_n)$
+
+\vspace{\baselineskip}
+
+A linear predictor of $Y_0$ based on $\mathbf{Y}$ would take the form $\sum \ell_i Y_i+\alpha_0$
+
+\vspace{\baselineskip}
+
+\pause
+
+Using squared error loss, the best linear prediction would minimize $$E\left[Y_0-\left(\sum \ell_i Y_i+\alpha_0\right)\right]^2 \text{ over } \ell_i \text{ and } \alpha_0$$
+
+\pause
+
+Setting $\sum \ell_i = 1$, $\alpha_0 = 0$, $a_0=1$ and $a_i=-\ell_i$, the criterion becomes $E[\sum_{i=0}^n a_i Y_i]^2$ with $\sum a_i = 0$.
+
+\vspace{\baselineskip}
+
+\begin{center}
+And $E[\sum_{i=0}^n a_i Y_i]^2 = - \sum_i \sum_j a_i a_j \gamma (||x_i-x_j||)$
+\end{center}
+
+\pause
+
+\vspace{\baselineskip}
+
+The $\ell_i$ are then estimated by solving constrained optimization on this criterion
+
+## Maximum likelihood approach
+
+Maximum likelihood methods consist in looking for the parameter values that maximize the likelihood $$P (\mathbf{Y} | \boldsymbol{\theta})$$
+
+\pause
+
+\vspace{\baselineskip}
+
+For hierarchical models, this suppose to make an integral over the random effect $\boldsymbol{\delta}$ (with $q$ the size of $\boldsymbol{\delta}$).
+
+$$P (\mathbf{Y} | \boldsymbol{\theta}) = \int_{\mathbb{R}^{q}} P (\mathbf{Y}, \boldsymbol{\delta} | \boldsymbol{\theta}) d\delta$$
+
+\vspace{\baselineskip}
+
+\begin{center}
+\ding{224} $q$ is often very high in spatio-temporal model
+\end{center}
+
+\pause
+
+\vspace{\baselineskip}
+
+To bypass the computational burden:
+
+- Laplace approximation
+
+- Pseudo-likelihood
+
+...
+
+## Bayesian inference
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Bayesian Paradigm:
+$$\textcolor{BaptisteBlue}{P(\boldsymbol{ \theta, \delta} \mid \mathbf{Y})}=\frac{\textcolor{BaptisteOrange}{P(\mathbf{Y} \mid \boldsymbol{\theta,\delta})}. \textcolor{BaptisteLightGreen}{P(\boldsymbol{\theta,\delta})}}{\textcolor{BaptisteDarkGrey}{P(\mathbf{Y})}}$$ \\
+\scriptsize
+\begin{itemize}
+\item $\textcolor{BaptisteBlue}{P(\boldsymbol{\theta,\delta} \mid \mathbf{Y})}$: posterior distribution of parameters and random effect \vspace{\baselineskip}
+\item $\textcolor{BaptisteOrange}{P(\mathbf{Y} \mid \boldsymbol{\theta,\delta})}$: likelihood of the data \vspace{\baselineskip}
+\item $\textcolor{BaptisteLightGreen}{P(\boldsymbol{\theta,\delta})}$: prior distribution of parameters and random effect \vspace{\baselineskip}
+\item $\textcolor{BaptisteDarkGrey}{P(\mathbf{Y})}$: marginal likelihood of the data (= normalizing constant) \vspace{\baselineskip}
+\end{itemize}
+
+\end{column}
+\begin{column}{0.5\textwidth}
+\center
+\includegraphics[width=5.5cm]{images/scheme_bayesien_2.png} \\
+\end{column}
+\end{columns}
+
+---
+
+\textbf{MCMC:} Random sampling in the joint posterior distribution  $\textcolor{BaptisteBlue}{P(\boldsymbol{\delta, \theta} | \mathbf{Y})}$ (Metropolis-Hastings algorithm)
+\begin{center}
+\vspace{\baselineskip}
+$\textcolor{BaptisteBlue}{P(\boldsymbol{\delta}, \boldsymbol{\theta} | \mathbf{Y})} \propto \textcolor{BaptisteLightGreen}{P(\boldsymbol{\theta})} \cdot \textcolor{BaptisteLightGreen}{P(\boldsymbol{\delta} | \boldsymbol{\theta})} \cdot \textcolor{BaptisteOrange}{P(\mathbf{Y} | \boldsymbol{\delta}, \boldsymbol{\theta})}$
+\vspace{\baselineskip}
+\end{center}
+\pause
+\begin{center}
+\textbf{\ding{220} \, In practice, the estimation can be very long due to the size of $\delta$} \\ \vspace{\baselineskip}
+\end{center}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+
+\small
+
+\textbf{\ding{224}} \textbf{INLA:} instead of estimating the joint distribution $\textcolor{BaptisteBlue}{P(\boldsymbol{\delta}, \boldsymbol{\theta} | \mathbf{Y})}$, approximate the marginal distribution $\textcolor{BaptisteBlue}{P(\boldsymbol{\theta} | \mathbf{Y})}$ and $\textcolor{BaptisteBlue}{P\left(\delta_{i} | \boldsymbol{\theta}, \mathbf{Y}\right)}$.
+
+\scriptsize
+
+$$\left.\tilde{P}(\boldsymbol \theta | \mathbf{y}) \propto \frac{P(\boldsymbol{\delta}, \boldsymbol{\theta}, \mathbf{Y})}{\tilde{P}_{\mathbf{G}}(\boldsymbol{\delta} | \boldsymbol{\theta}, \mathbf{Y})}\right|_{\boldsymbol{\delta}=\boldsymbol{\delta}^{*}(\boldsymbol{\theta})}$$
+
+$$\tilde{P}\left(\theta_j \mid \mathbf{Y}\right)=\int \tilde{P}(\boldsymbol \theta \mid \mathbf{Y}) d \theta_{-j}$$
+
+$$\tilde{P}\left(\delta_i \mid \mathbf{y}\right)=\int \tilde{P} \left(\delta_i \mid \boldsymbol{\theta}, \mathbf{Y}\right) \tilde{P}(\boldsymbol{\theta} \mid \mathbf{Y}) d \theta$$
+
+\end{column}
+\begin{column}{0.5\textwidth}
+
+\begin{center}
+
+\includegraphics[width=5cm]{images/gaussian_laplace.png} \\
+\tiny
+\textbf{Marginal distribution of $\delta_1$ (blue), Laplace approximation (red) and Gaussian approximation (orange).}
+
+\end{center}
+
+\end{column}
+\end{columns}
+
+
+# Some practice!
+
+## Spatial application
+
+```{r Loading the data, echo=F, warning=FALSE, message=FALSE, tidy=TRUE}
+
+load("data/OBS_2014.RData")
+OBS_daily2014=OBS_daily2014[OBS_daily2014$type_of_station=="Background",]
+dates=as.Date(OBS_daily2014$date)
+OBS_daily2014$day=1+as.integer(difftime(OBS_daily2014$date,OBS_daily2014$date[1],units='days'))
+
+```
+
+### Data
+
+```{r Map the data, echo=F, warning=FALSE, message=FALSE, tidy=TRUE}
+
+xy_OBS=SpatialPoints(coords=OBS_daily2014[,c("long","lat")],proj4string=CRS("+init=epsg:4326"))
+xy_OBS=spTransform(xy_OBS,CRS("+init=epsg:2154"))@coords/10^6
+
+# We prepare the boundary coordinates of the French territory:
+fr=map("world",regions="france",plot=FALSE)
+
+# Transform coordinates to Lambert 93 using spTransform:
+xy_fr = SpatialPoints(coords=na.omit(cbind(fr$x,fr$y)),proj4string=CRS("+init=epsg:4326"))
+xy_fr = spTransform(xy_fr,CRS("+init=epsg:2154"))@coords/10^6
+fr$x[!is.na(fr$x)] = xy_fr[,1]
+fr$y[!is.na(fr$y)] = xy_fr[,2]
+
+# We plot observation sites and French territorial boundary:
+plot(unique(xy_OBS)[,1],unique(xy_OBS)[,2],pch=19,cex=.33, asp=1, xlab = "x (1000 km)", ylab = "y (1000 km)")
+lines(fr$x,fr$y,lwd=2)
+
+```
+
+
+### Creating the mesh
+
+```{r Create mesh, echo=FALSE, warning=FALSE}
+
+bound  = inla.nonconvex.hull(unique(xy_OBS),convex=-.05)
+bound2 = inla.nonconvex.hull(unique(xy_OBS),convex=-.2)
+plot(bound2$loc[,1],bound2$loc[,2],type="l", asp = 1, xlab = "x (1000 km)", ylab = "y (1000 km)")
+lines(bound2$loc[,1],bound2$loc[,2])
+points(unique(xy_OBS)[,1],unique(xy_OBS)[,2],pch=19,cex=.25)
+
+# Define minimum edge length as 10km and maximum edge length as 25km 
+# (within the study region) and 50km (in the extension zone).
+mesh=inla.mesh.2d(loc=unique(xy_OBS),boundary=list(bound,bound2),cutoff=.01,
+                  max.edge=c(.025,.5),min.angle=c(21,21))
+plot(mesh, asp = 1, xlab = "x (1000 km)", ylab = "y (1000 km)",add=T) #looks OK
+lines(fr$x,fr$y,lwd=2,col="red") #add the true boundary of France in red
+points(unique(xy_OBS)[,1],unique(xy_OBS)[,2],pch=19,cex=.66, asp = 1, col = "orange")
+
+```
+
+
+### Building the SPDE model
+
+\small
+
+```{r Build SPDE model, echo=TRUE, warning=FALSE}
+
+myspde=inla.spde2.pcmatern(mesh=mesh,
+                           alpha=2,
+                           prior.range=c(.01,.1),
+                           prior.sigma=c(25,0.5))
+
+# Observation matrix to make the connection 
+# between mesh nodes and observation sites:
+A=inla.spde.make.A(mesh,loc=xy_OBS)
+
+# Vector of indices for the nodes of the mesh
+idx.spatial=inla.spde.make.index("spatial",
+                                 n.spde=mesh$n)
+
+```
+
+\normalsize
+
+### Building the regression part
+
+First, we create covariate dataframe: we add the intercept term 1, since in `R-INLA` it's more comfortable to include the intercept explicitly.
+
+\small
+
+```{r Build regression formula, echo=TRUE, warning=FALSE}
+
+covar.df=data.frame(intercept=1,
+                    x=xy_OBS[,1],
+                    y=xy_OBS[,2])
+
+# Create the stack with all the data and indices:
+mystack=inla.stack(data=list(pm10=OBS_daily2014$PM10),
+                   A=list(A,1),
+                   effects=list(idx.spatial,covar.df))
+
+# We write the formula for the model: 
+myformula=pm10~-1+intercept+f(spatial,model=myspde)
+
+```
+
+\normalsize
+
+Note: since we handle the intercept explicitly, we have to include "-1"). Recall that we have given the name "spatial" to the index of the spatial effect.
+
+
+### Fitting the model with R-INLA
+
+The following `inla` run should take approximatively 1 minute.
+
+\small
+
+```{r Running a better INLA/SPDE model, echo=TRUE, warning=FALSE}
+
+fit=inla(myformula,
+         data=inla.stack.data(mystack),
+         family="gaussian", 
+         control.predictor=list(A=inla.stack.A(mystack),
+                                compute=FALSE),
+         control.inla=list(int.strategy="eb",
+                           strategy="gaussian"),
+         verbose=F)
+
+``` 
+
+\normalsize
+
+---
+
+\tiny
+
+```{r,echo = F}
+
+summary(fit)
+
+```
+
+\normalsize
+
+### Predictions with R-INLA
+
+To build predictions, the input data (`inla.stack`) must be slightly modified. NA values are added to the vector of observations and inla will predict latent field values at these locations.
+
+\tiny
+
+```{r Alternative plotting the trend surface, echo=TRUE, warning=FALSE}
+# Observation matrix to make the connection between mesh nodes and observation sites:
+proj_grid=inla.mesh.projector(mesh,
+                              xlim=range(bound$loc[,1]),
+                              ylim=range(bound$loc[,2]),
+                              dims=c(100,100))
+
+# Grid on wich we calculate the predictions:
+xygrid=as.matrix(expand.grid(proj_grid$x,proj_grid$y))
+
+# Put prediction coordinates and observation coordinates into A:
+A=inla.spde.make.A(mesh,
+                   loc=rbind(xygrid,xy_OBS))
+
+# We add the intercept term 1, since in RINLA it's more comfortable to include the intercept explicitly.
+covar.df=data.frame(intercept=1,
+                    x=c(xygrid[,1],
+                        xy_OBS[,1]),
+                    y=c(xygrid[,2],
+                        xy_OBS[,2]))
+
+# Create the stack with all the data and indices: add NA data here
+mystack=inla.stack(data=list(pm10=c(rep(NA,nrow(xygrid)),
+                                    OBS_daily2014$PM10)),
+                   A=list(A,1),
+                   effects=list(idx.spatial,covar.df),
+                   tag="mytag")
+```
+
+\normalsize
+
+---
+
+\small
+
+When fitting, we now set `compute=TRUE` (to calculate fitted and predicted values) and `link=1` (although only necessary when using non-identity link).
+
+\tiny
+\vspace{\baselineskip}
+
+Running INLA can now take considerably longer since we calculate the posterior estimation `y.hat` for each observation point $y$ (`compute=TRUE`).
+
+\small
+
+```{r Prediction with posteriors, echo=TRUE, eval = T, warning=FALSE}
+fit=inla(myformula,
+         data=inla.stack.data(mystack),
+         family="gaussian",
+         control.predictor=list(A=inla.stack.A(mystack),
+                                compute=TRUE,
+                                link=1),
+         control.inla=list(int.strategy="eb",
+                           strategy="gaussian"))
+```
+
+\normalsize
+
+---
+
+```{r Looking at prediction mean values, echo=FALSE, warning=FALSE}
+
+# load("res/fit_air_pollution.RData")
+
+
+# load(file="fit1.Rdata")
+# We find the positions of the prediction values (there may be several ways to do this...):
+idx.pred=inla.stack.index(mystack,tag="mytag")$data[1:nrow(xygrid)]
+
+# We extract predictions:
+pred.grid=fit$summary.fitted.values$mean[idx.pred]
+
+# We plot the gridded posterior means:
+image.plot(proj_grid$x,proj_grid$y,matrix(pred.grid,ncol=100,nrow=100), asp = 1, xlab = "x (1000 km)", ylab = "y (1000 km)")
+points(unique(xy_OBS),pch=19,cex=.25)
+lines(fr$x,fr$y,lwd=2)
+
+```
+
+---
+
+```{r Looking at prediction standard deviation, echo=FALSE, warning=FALSE}
+
+# We extract and plot standard erors of predictions:
+pred.grid=fit$summary.fitted.values$sd[idx.pred]
+image.plot(proj_grid$x,proj_grid$y,matrix(pred.grid,ncol=100,nrow=100), asp = 1, xlab = "x (1000 km)", ylab = "y (1000 km)")
+points(unique(xy_OBS),pch=19,cex=.25)
+lines(fr$x,fr$y,lwd=2)
+
+```
+
+---
+
+```{r Looking at Residuals, echo=FALSE, warning=FALSE}
+
+#We check the residuals (here: data minus prediction) ####
+n.data=nrow(OBS_daily2014) #number of data points
+idx.data=inla.stack.index(mystack,tag="mytag")$data[(nrow(xygrid)+1):(nrow(xygrid)+n.data)]
+resid=OBS_daily2014$PM10-fit$summary.fitted.values$mean[idx.data]
+hist(resid,breaks=100,freq=F)
+#We add the density of the fitted Gaussian likelihood to the plot:
+#therefore, we first calculate the posterior mean estimate of the Gaussian standard deviation
+#(based on the posterior density of the Gaussian precision):
+prec2sd=function(prec){#function to transform precision to standard deviation
+  sqrt(1/prec)
+}
+sd.likelihood=inla.emarginal(prec2sd,marginal=fit$marginals.hyperpar$`Precision for the Gaussian observations`)
+xvals=-500+1:1000
+lines(xvals,dnorm(xvals,sd=sd.likelihood),col="blue",lwd=2)
+
+```
+
+## Spatio-temporal application
+
+\begin{center}
+Simulating and preparing the data
+\vspace{\baselineskip}
+\end{center}
+
+```{r}
+
+source("functions/spde-book-functions.R")
+
+## Data
+data(PRborder) # study region
+data(PRprec) # location of the points
+coords <- as.matrix(PRprec[sample(1:nrow(PRprec)), 1:2])
+
+## Space time domain
+k <- 12 # time steps
+# domain and mesh
+prdomain <- inla.nonconvex.hull(as.matrix(PRprec[, 1:2]),
+                                convex = -0.03, concave = -0.05,
+                                resolution = c(100, 100))
+prmesh1 <- inla.mesh.2d(boundary = prdomain, 
+                        max.edge = c(0.7, 0.7), cutoff = 0.35,
+                        offset = c(-0.05, -0.05))
+
+#------------------------------------------------------------------
+#------------------- Simulation step ------------------------------
+#------------------------------------------------------------------
+## space-time latent field parameterization
+params <- c(variance = 1, kappa = 1) 
+rho <- 0.7
+set.seed(1)
+# k independent spatial components
+x.k <- book.rspde(coords, range = sqrt(8) / params[2], # function for simulating spatial field
+                  sigma = sqrt(params[1]), n = k, mesh = prmesh1,
+                  return.attributes = TRUE)
+
+# add the autoregressive part
+x <- x.k
+for (j in 2:k) x[, j] <- rho * x[, j - 1] + sqrt(1 - rho^2) * x.k[, j]
+
+par(mfrow = c(5, 3), mar = c(0, 0, 0.7, 0))
+
+# Values for scaling
+x.min <- min(as.vector(x))
+x.max <- max(as.vector(x))
+x.range <- x.max - x.min
+
+c100 <- book.color.c(101)
+for (j in 1:k) {
+  cols <- c100[1 + round(100 * (x[, j] - x.min)) / x.range ]
+  plot(coords[,1],coords[,2], col = cols, axes = FALSE, asp = 1, pch = 19, cex = 0.5,
+       main = paste0("Time: ", j))
+}
+
+# add a categorial variable
+n <- nrow(coords)
+set.seed(2)
+ccov <- factor(sample(LETTERS[1:3], n * k, replace = TRUE))
+beta <- -1:1 # coefficient
+
+# compute response variable
+sd.y <- 0.1 # observation variance
+y <- beta[unclass(ccov)] + x + rnorm(n * k, 0, sd.y) # covariate effect + space-time random effect + white noise with variance sd.y
+
+# create the data dataframe
+isel <- sample(1:(n * k), n * k / 2) # select datapoints to be included in model fitting
+dat <- data.frame(y = as.vector(y), w = ccov, 
+                  time = rep(1:k, each = n), 
+                  xcoo = rep(coords[, 1], k), 
+                  ycoo = rep(coords[, 2], k))[isel, ]
+
+spde <- inla.spde2.pcmatern(mesh = prmesh1, 
+                            prior.range = c(0.5, 0.01), # P(range < 0.05) = 0.01
+                            prior.sigma = c(1, 0.01)) # P(sigma > 1) = 0.01
+
+#----------------------------------------------------------
+##-------------- Data stack preparation -------------------
+#----------------------------------------------------------
+## SPDE objects
+spde <- inla.spde2.pcmatern(mesh = prmesh1, 
+                            prior.range = c(0.5, 0.01), # P(range < 0.05) = 0.01
+                            prior.sigma = c(1, 0.01)) # P(sigma > 1) = 0.01
+
+iset <- inla.spde.make.index('i', n.spde = spde$n.spde, # index set for time component (specific to space-time analysis)
+                             n.group = k)
+
+A <- inla.spde.make.A(mesh = prmesh1, # matrix design (relate mesh to datapoints)
+                      loc = cbind(dat$xcoo, dat$ycoo), group = dat$time) 
+
+sdat <- inla.stack(
+  data = list(y = dat$y), 
+  A = list(A, 1), 
+  effects = list(iset, w = dat$w), # index set and categorical variable
+  tag = 'stdata')
+
+```
+
+---
+
+\begin{center}
+Fitting the model - model estimates
+\vspace{\baselineskip}
+\end{center}
+
+```{r,include=F}
+
+#----------------------------------------------------------
+##-------------- Fitting the model ------------------------
+#----------------------------------------------------------
+## Configuration
+# PC prior
+h.spec <- list(rho = list(prior = 'pc.cor1', param = c(0, 0.9)))
+
+# Model formula
+formulae <- y ~ 0 + w + f(i, model = spde, group = i.group, 
+                          control.group = list(model = 'ar1', hyper = h.spec)) 
+
+# PC prior on the autoreg. param.
+prec.prior <- list(prior = 'pc.prec', param = c(1, 0.01))
+
+## Model fitting
+res <- inla(formulae,  data = inla.stack.data(sdat), 
+            control.predictor = list(compute = TRUE,
+                                     A = inla.stack.A(sdat)), 
+            control.family = list(hyper = list(prec = prec.prior)), 
+            control.fixed = list(expand.factor.strategy = 'inla'))
+
+```
+
+```{r,out.width="90%",fig.align='center'}
+
+par(mfrow = c(2, 2), mar = c(3, 3, 1, 0.1), mgp = 2:0)
+for (j in 1:4){
+  plot(res$marginals.hyper[[j]][,1],res$marginals.hyper[[j]][,2], type = 'l', 
+       xlab = names(res$marginals.hyper)[j], ylab = 'Density')
+  abline(v = c(1 / sd.y^2, sqrt(8) / params[1], params[2]^0.5, rho)[j],
+         col = 2)
+}
+
+```
+
+---
+
+
+\begin{center}
+Fitting the model - model spatial predictions
+\vspace{\baselineskip}
+\end{center}
+
+```{r,out.width="90%",fig.align='center'}
+
+## Plot latent field values
+stepsize <- 4 * 1 / 111
+nxy <- round(c(diff(range(coords[, 1])), 
+               diff(range(coords[, 2]))) / stepsize)
+projgrid <- inla.mesh.projector( # projection grid
+  prmesh1, xlim = range(coords[, 1]), 
+  ylim = range(coords[, 2]), dims = nxy)
+
+xmean <- list() # compute predictions
+for (j in 1:k){
+  xmean[[j]] <- inla.mesh.project(
+    projgrid, res$summary.random$i$mean[iset$i.group == j])
+}
+
+xy.in <- inout(projgrid$lattice$loc, 
+               cbind(PRborder[, 1], PRborder[, 2]))
+
+par(mfrow = c(4,3), mar = c(0, 0, 0, 0))
+for (j in 1:k) {
+  xmean[[j]][!xy.in] <- NA
+  book.plot.field(list(x = projgrid$x, y = projgrid$y, z = xmean[[j]]),
+                  zlim = round(range(unlist(xmean), na.rm = TRUE), 1) )
+}
+
+```
+
+# Few words on some subject that we did not address here
+
+\begin{columns}
+\begin{column}{0.33\textwidth}
+
+\center
+
+\textbf{Anisotropy}
+
+\end{column}
+\begin{column}{0.33\textwidth}
+
+\center
+
+\textbf{Non-stationarity}
+
+\end{column}
+\begin{column}{0.33\textwidth}
+
+\center
+
+\textbf{Dynamic modeling}
+
+\end{column}
+\end{columns}
+
+
+\begin{columns}
+\begin{column}{0.33\textwidth}
+
+\center
+
+\vspace{\baselineskip}
+
+\includegraphics[width=0.9\linewidth]{images/anistropy.png}
+
+\end{column}
+\begin{column}{0.33\textwidth}
+
+\center
+
+\includegraphics[width=0.9\linewidth]{images/non_stationarity.png}
+
+\end{column}
+\begin{column}{0.33\textwidth}
+
+\center
+
+\tiny
+
+$$\mathbf{Y}_t=\mathbf{M}\left(\boldsymbol{\theta}_p\right) \mathbf{Y}_{t-1}+\mathbf{M}_b\left(\boldsymbol{\theta}_p\right) \mathbf{Y}_{b, t}+\boldsymbol{\eta}_t$$
+
+\includegraphics[width=0.9\linewidth]{images/dyn_mod.png}
+
+\end{column}
+\end{columns}
+
+
+# Some useful references
+
+\begin{columns}
+\begin{column}{0.33\textwidth}
+
+\centering
+\includegraphics[width = 3cm]{"images/book_rinla_4.jpg"}
+
+\end{column}
+\begin{column}{0.33\textwidth}
+
+\centering
+\includegraphics[width = 3cm]{"images/book_rinla_3.jpg"}
+
+\end{column}
+\begin{column}{0.33\textwidth}
+
+\centering
+\includegraphics[width = 3cm]{"images/book_rinla_1.jpg"}
+
+\end{column}
+\end{columns}
+
+
+\vspace{\baselineskip}
+
+And \textbf{Spatio-Temporal Statistics with R} by Christopher K. Wikle, Andrew Zammit-Mangion, and Noel Cressie. Published by Chapman & Hall/CRC. \url{https://spacetimewithr.org/}
+
+
+# Work in autonomy
+
+\vspace{\baselineskip}
+
+- Explore some aspects of spatial statistics that I did not presented here (anisotropy, non-stationarity, EOF, aggregation indices, etc)
+
+\vspace{\baselineskip}
+
+- Apply INLA on available dataset (EVHOE or anything else)
+
+\vspace{\baselineskip}
+
+- Present some nice modeling/coding stuff based on previous references
+
+\vspace{\baselineskip}
+
+\center
+
+\ding{224} 2 hours of work in autonomy and restitution
+
