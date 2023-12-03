@@ -52,7 +52,10 @@ y.seq <- seq(from, to, length=200)
 
 simu <- RFsimulate(model, x=x.seq, y=y.seq)
 
-image.plot(x.seq,y.seq,simu,xlab="",ylab="",asp=1)
+# png(file="images/gaussian_field.png",width=600, height=600)
+image.plot(x.seq,y.seq,col=viridis(60),simu,xlab="",ylab="")
+# dev.off()
+
 
 ```
 

@@ -1,0 +1,1664 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.23)  3 DEC 2023 17:25
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**sp_st_stats_M2.tex
+(./sp_st_stats_M2.tex
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-09>
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamer.cls
+Document Class: beamer 2023/05/15 v3.70 A class for typesetting presentations
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count186
+)
+\beamer@tempbox=\box51
+\beamer@tempcount=\count187
+\c@beamerpauses=\count188
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+\beamer@slideinframe=\count189
+\beamer@minimum=\count190
+\beamer@decode@box=\box52
+)
+\beamer@commentbox=\box53
+\beamer@modecount=\count191
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+\headdp=\dimen140
+\footheight=\dimen141
+\sidebarheight=\dimen142
+\beamer@tempdim=\dimen143
+\beamer@finalheight=\dimen144
+\beamer@animht=\dimen145
+\beamer@animdp=\dimen146
+\beamer@animwd=\dimen147
+\beamer@leftmargin=\dimen148
+\beamer@rightmargin=\dimen149
+\beamer@leftsidebar=\dimen150
+\beamer@rightsidebar=\dimen151
+\beamer@boxsize=\dimen152
+\beamer@vboxoffset=\dimen153
+\beamer@descdefault=\dimen154
+\beamer@descriptionwidth=\dimen155
+\beamer@lastskip=\skip48
+\beamer@areabox=\box54
+\beamer@animcurrent=\box55
+\beamer@animshowbox=\box56
+\beamer@sectionbox=\box57
+\beamer@logobox=\box58
+\beamer@linebox=\box59
+\beamer@sectioncount=\count192
+\beamer@subsubsectionmax=\count193
+\beamer@subsectionmax=\count194
+\beamer@sectionmax=\count195
+\beamer@totalheads=\count196
+\beamer@headcounter=\count197
+\beamer@partstartpage=\count198
+\beamer@sectionstartpage=\count199
+\beamer@subsectionstartpage=\count266
+\beamer@animationtempa=\count267
+\beamer@animationtempb=\count268
+\beamer@xpos=\count269
+\beamer@ypos=\count270
+\beamer@ypos@offset=\count271
+\beamer@showpartnumber=\count272
+\beamer@currentsubsection=\count273
+\beamer@coveringdepth=\count274
+\beamer@sectionadjust=\count275
+\beamer@toclastsection=\count276
+\beamer@tocsectionnumber=\count277
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+))
+\beamer@paperwidth=\skip49
+\beamer@paperheight=\skip50
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count278
+\Gm@cntv=\count279
+\c@Gm@tempcnt=\count280
+\Gm@bindingoffset=\dimen156
+\Gm@wd@mp=\dimen157
+\Gm@odd@mp=\dimen158
+\Gm@even@mp=\dimen159
+\Gm@layoutwidth=\dimen160
+\Gm@layoutheight=\dimen161
+\Gm@layouthoffset=\dimen162
+\Gm@layoutvoffset=\dimen163
+\Gm@dimlist=\toks18
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks19
+\pgfutil@tempdima=\dimen164
+\pgfutil@tempdimb=\dimen165
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box60
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks20
+\pgfkeys@temptoks=\toks21
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks22
+))) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgf@x=\dimen166
+\pgf@xa=\dimen167
+\pgf@xb=\dimen168
+\pgf@xc=\dimen169
+\pgf@y=\dimen170
+\pgf@ya=\dimen171
+\pgf@yb=\dimen172
+\pgf@yc=\dimen173
+\c@pgf@counta=\count281
+\c@pgf@countb=\count282
+\c@pgf@countc=\count283
+\c@pgf@countd=\count284
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen174
+\pgfmath@count=\count285
+\pgfmath@box=\box61
+\pgfmath@toks=\toks23
+\pgfmath@stack@operand=\toks24
+\pgfmath@stack@operation=\toks25
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count286
+))) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen175
+\Gin@req@width=\dimen176
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+\pgf@x=\dimen177
+\pgf@y=\dimen178
+\pgf@xa=\dimen179
+\pgf@ya=\dimen180
+\pgf@xb=\dimen181
+\pgf@yb=\dimen182
+\pgf@xc=\dimen183
+\pgf@yc=\dimen184
+\pgf@xd=\dimen185
+\pgf@yd=\dimen186
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count287
+\c@pgf@countb=\count288
+\c@pgf@countc=\count289
+\c@pgf@countd=\count290
+\t@pgf@toka=\toks26
+\t@pgf@tokb=\toks27
+\t@pgf@tokc=\toks28
+\pgf@sys@id@count=\count291
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count292
+\pgfsyssoftpath@bigbuffer@items=\count293
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen187
+\pgf@picmaxx=\dimen188
+\pgf@picminy=\dimen189
+\pgf@picmaxy=\dimen190
+\pgf@pathminx=\dimen191
+\pgf@pathmaxx=\dimen192
+\pgf@pathminy=\dimen193
+\pgf@pathmaxy=\dimen194
+\pgf@xx=\dimen195
+\pgf@xy=\dimen196
+\pgf@yx=\dimen197
+\pgf@yy=\dimen198
+\pgf@zx=\dimen199
+\pgf@zy=\dimen256
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen257
+\pgf@path@lasty=\dimen258
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen259
+\pgf@shorten@start@additional=\dimen260
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box62
+\pgf@hbox=\box63
+\pgf@layerbox@main=\box64
+\pgf@picture@serial@count=\count294
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen261
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen262
+\pgf@pt@y=\dimen263
+\pgf@pt@temp=\dimen264
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen265
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen266
+\pgf@sys@shading@range@num=\count295
+\pgf@shadingcount=\count296
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box65
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count297
+\XC@countmixins=\count298
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count299
+)
+\@linkdim=\dimen267
+\Hy@linkcounter=\count300
+\Hy@pagecounter=\count301
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count302
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4064.
+Package hyperref Info: Option `bookmarks' set `true' on input line 4064.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4064.
+Package hyperref Info: Option `implicit' set `false' on input line 4064.
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count303
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4786.
+\XeTeXLinkMargin=\dimen268
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count304
+\Field@Width=\dimen269
+\Fld@charsize=\dimen270
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing OFF on input line 6080.
+Package hyperref Info: Link coloring OFF on input line 6085.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+\Hy@abspage=\count305
+
+Package hyperref Message: Stopped early.
+
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count306
+\c@bookmark@seq@number=\count307
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaserequires.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasecompatibility.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasefont.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks29
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/translator/translator.sty
+Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasemisc.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+\beamer@argscount=\count308
+\beamer@lastskipcover=\skip51
+\beamer@trivlistdepth=\count309
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetitle.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+\c@lecture=\count310
+\c@part=\count311
+\c@section=\count312
+\c@subsection=\count313
+\c@subsubsection=\count314
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+\beamer@framebox=\box66
+\beamer@frametitlebox=\box67
+\beamer@zoombox=\box68
+\beamer@zoomcount=\count315
+\beamer@zoomframecount=\count316
+\beamer@frametextheight=\dimen271
+\c@subsectionslide=\count317
+\beamer@frametopskip=\skip52
+\beamer@framebottomskip=\skip53
+\beamer@frametopskipautobreak=\skip54
+\beamer@framebottomskipautobreak=\skip55
+\beamer@envbody=\toks30
+\framewidth=\dimen272
+\c@framenumber=\count318
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+\beamer@verbatimfileout=\write4
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
+\beamer@splitbox=\box69
+\beamer@autobreakcount=\count319
+\beamer@autobreaklastheight=\dimen273
+\beamer@frametitletoks=\toks31
+\beamer@framesubtitletoks=\toks32
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
+\beamer@footins=\box70
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasecolor.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
+\beamer@frameboxcopy=\box71
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetoc.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+\beamer@sbttoks=\toks33
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+\bmb@box=\box72
+\bmb@colorbox=\box73
+\bmb@boxwidth=\dimen274
+\bmb@boxheight=\dimen275
+\bmb@prevheight=\dimen276
+\bmb@temp=\dimen277
+\bmb@dima=\dimen278
+\bmb@dimb=\dimen279
+\bmb@prevheight=\dimen280
+)
+\beamer@blockheadheight=\dimen281
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
+\@enLab=\toks34
+)
+\beamer@bibiconwidth=\skip56
+\c@figure=\count320
+\c@table=\count321
+\abovecaptionskip=\skip57
+\belowcaptionskip=\skip58
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex)
+\beamer@section@min@dim=\dimen282
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip59
+For additional information on amsmath, use the `?' option.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks35
+\ex@=\dimen283
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen284
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count322
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count323
+\leftroot@=\count324
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count325
+\DOTSCASE@=\count326
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box74
+\strutbox@=\box75
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen285
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count327
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count328
+\dotsspace@=\muskip17
+\c@parentequation=\count329
+\dspbrk@lvl=\count330
+\tag@help=\toks36
+\row@=\count331
+\column@=\count332
+\maxfields@=\count333
+\andhelp@=\toks37
+\eqnshift@=\dimen286
+\alignsep@=\dimen287
+\tagshift@=\dimen288
+\tagwidth@=\dimen289
+\totwidth@=\dimen290
+\lineht@=\dimen291
+\@envbody=\toks38
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks39
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks40
+\thm@bodyfont=\toks41
+\thm@headfont=\toks42
+\thm@notefont=\toks43
+\thm@headpunct=\toks44
+\thm@preskip=\skip62
+\thm@postskip=\skip63
+\thm@headsep=\skip64
+\dth@everypar=\toks45
+)
+\c@theorem=\count334
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerbasethemes.sty)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerthemedefault.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
+\beamer@dima=\dimen292
+\beamer@dimb=\dimen293
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+Package: pgfpages 2011/01/05 ver 0.02
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count335
+\calc@Bcount=\count336
+\calc@Adimen=\dimen294
+\calc@Bdimen=\dimen295
+\calc@Askip=\skip65
+\calc@Bskip=\skip66
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count337
+\calc@Cskip=\skip67
+)
+\pgf@logicalpages=\count338
+\pgf@firstshipout=\count339
+\pgf@lastshipout=\count340
+\pgf@currentshipout=\count341
+\pgf@cpn=\count342
+\pgf@shipoutnextto=\count343
+\pgfphysicalheight=\dimen296
+\pgfphysicalwidth=\dimen297
+\pgfpages@shipoutbox=\box76
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks46
+\inpenc@posthook=\toks47
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerthemeBoadilla.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamercolorthemerose.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamercolorthemedolphin.sty) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2023/11/06 4.5b verbatim text (tvz,hv)
+\FV@CodeLineNo=\count344
+\FV@InFile=\read3
+\FV@TabBox=\box77
+\c@FancyVerbLine=\count345
+\FV@StepNumber=\count346
+\FV@OutFile=\write5
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip68
+\fb@frw=\dimen298
+\fb@frh=\dimen299
+\FrameRule=\dimen300
+\FrameSep=\dimen301
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/graphics/rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count347
+\rotFPtop=\skip69
+\rotFPbot=\skip70
+\rot@float@box=\box78
+\rot@mess@toks=\toks48
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen302
+\captionmargin=\dimen303
+\caption@leftmargin=\dimen304
+\caption@rightmargin=\dimen305
+\caption@width=\dimen306
+\caption@indent=\dimen307
+\caption@parindent=\dimen308
+\caption@hangindent=\dimen309
+Package caption Info: beamer document class detected.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/caption/caption-beamer.sto
+File: caption-beamer.sto 2022/01/06 v2.0c Adaption of the caption package to the beamer document classes (AR)
+))
+\c@caption@flags=\count348
+\c@continuedfloat=\count349
+Package caption Info: hyperref package is loaded.
+Package caption Info: Hyperref support is turned off
+(caption)             because hyperref has stopped early.
+Package caption Info: rotating package is loaded.
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box79
+\UL@hyphenbox=\box80
+\UL@skip=\skip71
+\UL@hook=\toks49
+\UL@height=\dimen310
+\UL@pe=\count350
+\UL@pixel=\dimen311
+\ULC@box=\box81
+Package: ulem 2019/11/18
+\ULdepth=\dimen312
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/wasysym/wasysym.sty
+Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
+\symwasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
+) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2023/11/11 v3.97 The Babel package
+\babel@savecnt=\count351
+\U@D=\dimen313
+\l@unhyphenated=\language5
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read4
+LaTeX Info: Redefining \textlatin on input line 3953.
+\bbl@dirlevel=\count352
+(/home/balglave/.TinyTeX/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'british' set to \l@english
+(babel)             (\language0). Reported on input line 82.
+Package babel Info: Hyphen rules for 'UKenglish' set to \l@english
+(babel)             (\language0). Reported on input line 83.
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@english
+(babel)             (\language0). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@english
+(babel)             (\language0). Reported on input line 108.
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/psnfss/pifont.sty
+Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
+LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+)) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count353
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+\c@tabx@nest=\count354
+\c@listtotal=\count355
+\c@listcount=\count356
+\c@liststart=\count357
+\c@liststop=\count358
+\c@citecount=\count359
+\c@citetotal=\count360
+\c@multicitecount=\count361
+\c@multicitetotal=\count362
+\c@instcount=\count363
+\c@maxnames=\count364
+\c@minnames=\count365
+\c@maxitems=\count366
+\c@minitems=\count367
+\c@citecounter=\count368
+\c@maxcitecounter=\count369
+\c@savedcitecounter=\count370
+\c@uniquelist=\count371
+\c@uniquename=\count372
+\c@refsection=\count373
+\c@refsegment=\count374
+\c@maxextratitle=\count375
+\c@maxextratitleyear=\count376
+\c@maxextraname=\count377
+\c@maxextradate=\count378
+\c@maxextraalpha=\count379
+\c@abbrvpenalty=\count380
+\c@highnamepenalty=\count381
+\c@lownamepenalty=\count382
+\c@maxparens=\count383
+\c@parenlevel=\count384
+\blx@tempcnta=\count385
+\blx@tempcntb=\count386
+\blx@tempcntc=\count387
+\c@blx@maxsection=\count388
+\blx@maxsegment@0=\count389
+\blx@notetype=\count390
+\blx@parenlevel@text=\count391
+\blx@parenlevel@foot=\count392
+\blx@sectionciteorder@0=\count393
+\blx@sectionciteorderinternal@0=\count394
+\blx@entrysetcounter=\count395
+\blx@biblioinstance=\count396
+\labelnumberwidth=\skip72
+\labelalphawidth=\skip73
+\biblabelsep=\skip74
+\bibitemsep=\skip75
+\bibnamesep=\skip76
+\bibinitsep=\skip77
+\bibparsep=\skip78
+\bibhang=\skip79
+\blx@bcfin=\read5
+\blx@bcfout=\write6
+\blx@langwohyphens=\language6
+\c@mincomprange=\count397
+\c@maxcomprange=\count398
+\c@mincompwidth=\count399
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'authoryear.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count400
+\c@savedafterword=\count401
+\c@annotator=\count402
+\c@savedannotator=\count403
+\c@author=\count404
+\c@savedauthor=\count405
+\c@bookauthor=\count406
+\c@savedbookauthor=\count407
+\c@commentator=\count408
+\c@savedcommentator=\count409
+\c@editor=\count410
+\c@savededitor=\count411
+\c@editora=\count412
+\c@savededitora=\count413
+\c@editorb=\count414
+\c@savededitorb=\count415
+\c@editorc=\count416
+\c@savededitorc=\count417
+\c@foreword=\count418
+\c@savedforeword=\count419
+\c@holder=\count420
+\c@savedholder=\count421
+\c@introduction=\count422
+\c@savedintroduction=\count423
+\c@namea=\count424
+\c@savednamea=\count425
+\c@nameb=\count426
+\c@savednameb=\count427
+\c@namec=\count428
+\c@savednamec=\count429
+\c@translator=\count430
+\c@savedtranslator=\count431
+\c@shortauthor=\count432
+\c@savedshortauthor=\count433
+\c@shorteditor=\count434
+\c@savedshorteditor=\count435
+\c@labelname=\count436
+\c@savedlabelname=\count437
+\c@institution=\count438
+\c@savedinstitution=\count439
+\c@lista=\count440
+\c@savedlista=\count441
+\c@listb=\count442
+\c@savedlistb=\count443
+\c@listc=\count444
+\c@savedlistc=\count445
+\c@listd=\count446
+\c@savedlistd=\count447
+\c@liste=\count448
+\c@savedliste=\count449
+\c@listf=\count450
+\c@savedlistf=\count451
+\c@location=\count452
+\c@savedlocation=\count453
+\c@organization=\count454
+\c@savedorganization=\count455
+\c@origlocation=\count456
+\c@savedoriglocation=\count457
+\c@origpublisher=\count458
+\c@savedorigpublisher=\count459
+\c@publisher=\count460
+\c@savedpublisher=\count461
+\c@language=\count462
+\c@savedlanguage=\count463
+\c@origlanguage=\count464
+\c@savedoriglanguage=\count465
+\c@pageref=\count466
+\c@savedpageref=\count467
+\shorthandwidth=\skip80
+\shortjournalwidth=\skip81
+\shortserieswidth=\skip82
+\shorttitlewidth=\skip83
+\shortauthorwidth=\skip84
+\shorteditorwidth=\skip85
+\locallabelnumberwidth=\skip86
+\locallabelalphawidth=\skip87
+\localshorthandwidth=\skip88
+\localshortjournalwidth=\skip89
+\localshortserieswidth=\skip90
+\localshorttitlewidth=\skip91
+\localshortauthorwidth=\skip92
+\localshorteditorwidth=\skip93
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
+\c@textcitecount=\count468
+\c@textcitetotal=\count469
+\c@textcitemaxnames=\count470
+\c@biburlbigbreakpenalty=\count471
+\c@biburlbreakpenalty=\count472
+\c@biburlnumpenalty=\count473
+\c@biburlucpenalty=\count474
+\c@biburllcpenalty=\count475
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count476
+)
+Package biblatex Info: Trying to load bibliography style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.bbx' found.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+File: authoryear.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count477
+\c@bbx:relatedtotal=\count478
+))
+Package biblatex Info: Trying to load citation style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.cbx' found.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+File: authoryear.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-11-09 L3 programming layer (loader) 
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count479
+\l__pdf_internal_box=\box82
+))
+Package biblatex Info: ... and expl3
+(biblatex)             2023-11-09 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/home/balglave/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2023-10-10 L3 Experimental document command parser
+)
+Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
+))
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count480
+\@quotereset=\count481
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 202.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) (./sp_st_stats_M2.aux)
+\openout1 = `sp_st_stats_M2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(10.88002pt, 342.43532pt, 10.88002pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=342.43532pt
+* \textheight=244.6939pt
+* \oddsidemargin=-61.38997pt
+* \evensidemargin=-61.38997pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=11.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package hyperref Info: Link coloring OFF on input line 202.
+(./sp_st_stats_M2.out) (./sp_st_stats_M2.out)
+\@outlinefile=\write7
+\openout7 = `sp_st_stats_M2.out'.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 202.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 202.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 202.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 202.
+\symnumbers=\mathgroup7
+\sympureletters=\mathgroup8
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 202.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 202.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 202.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 202.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 202.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 202.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 202.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 202.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/translator/translator-environment-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/translator/translator-months-dictionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/translator/translator-numbers-dictionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+) (/home/balglave/.TinyTeX/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout6 = `sp_st_stats_M2.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'sp_st_stats_M2.bbl' not found.
+No file sp_st_stats_M2.bbl.
+Package biblatex Info: Reference section=0 on input line 202.
+Package biblatex Info: Reference segment=0 on input line 202.
+(./sp_st_stats_M2.nav)
+<images/couv.png, id=87, 600.44325pt x 494.44725pt>
+File: images/couv.png Graphic file (type png)
+<use images/couv.png>
+Package pdftex.def Info: images/couv.png  used on input line 203.
+(pdftex.def)             Requested size: 126.51825pt x 104.18404pt.
+[1
+
+{/home/balglave/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/balglave/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./images/couv.PNG>] [2
+
+] [3
+
+] [4
+
+] [5
+
+]
+<images/co2.png, id=135, 404.10976pt x 428.19975pt>
+File: images/co2.png Graphic file (type png)
+<use images/co2.png>
+Package pdftex.def Info: images/co2.png  used on input line 238.
+(pdftex.def)             Requested size: 205.47046pt x 217.71907pt.
+
+Overfull \vbox (7.03894pt too high) detected at line 238
+ []
+
+[6
+
+ <./images/co2.PNG>]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-2-1.pdf, id=144, 531.9875pt x 481.8pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-2-1.pdf  used on input line 242.
+(pdftex.def)             Requested size: 287.61803pt x 260.48424pt.
+
+Overfull \vbox (1.00409pt too high) detected at line 242
+ []
+
+[7
+
+ <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-2-1.pdf>] [8
+
+] [9
+
+] [10
+
+] [11
+
+]
+<images/dag_ssm.png, id=189, 1032.0156pt x 675.2427pt>
+File: images/dag_ssm.png Graphic file (type png)
+<use images/dag_ssm.png>
+Package pdftex.def Info: images/dag_ssm.png  used on input line 309.
+(pdftex.def)             Requested size: 273.9395pt x 179.23726pt.
+[12
+
+ <./images/dag_ssm.png>]
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 347.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/ot1lmss.fd
+File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 347.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 347.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 347.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 347.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 347.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 347.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 347.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 347.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 347.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/wasysym/uwasy.fd
+File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <10.95> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <8> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <6> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 347.
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 347.
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 347.
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 347.
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 347.
+
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 347.
+
+LaTeX Font Info:    Font shape `T1/lmss/b/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/bx/it' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/b/it' in size <8> not available
+(Font)              Font shape `T1/lmss/bx/it' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <8> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/b/it' in size <6> not available
+(Font)              Font shape `T1/lmss/bx/it' tried instead on input line 347.
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <6> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 347.
+[13
+
+{/home/balglave/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/home/balglave/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/home/balglave/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [14
+
+] [15
+
+] [16
+
+]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-4-1.pdf, id=234, 712.6625pt x 495.8525pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-4-1.pdf  used on input line 375.
+(pdftex.def)             Requested size: 256.81929pt x 178.68834pt.
+[17
+
+ <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-4-1.pdf>]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-5-1.pdf, id=250, 517.935pt x 481.8pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-5-1.pdf  used on input line 383.
+(pdftex.def)             Requested size: 280.02055pt x 260.48424pt.
+
+Overfull \vbox (51.93324pt too high) detected at line 383
+ []
+
+[18
+
+ <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-5-1.pdf>] [19
+
+]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-7-1.pdf, id=276, 706.64pt x 235.88126pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-7-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-7-1.pdf  used on input line 429.
+(pdftex.def)             Requested size: 342.43964pt x 114.30869pt.
+[20
+
+{/home/balglave/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-7-1.pdf>] [21
+
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 493.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 493.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 493.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <10> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 493.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <7> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 493.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <5> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 493.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 493.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 493.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 493.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 493.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+<images/cov_image.png, id=302, 321.2pt x 963.6pt>
+File: images/cov_image.png Graphic file (type png)
+<use images/cov_image.png>
+Package pdftex.def Info: images/cov_image.png  used on input line 493.
+(pdftex.def)             Requested size: 85.35774pt x 256.07324pt.
+
+Overfull \vbox (17.73434pt too high) detected at line 493
+ []
+
+[22
+
+ <./images/cov_image.png>]
+File: images/cov_image.png Graphic file (type png)
+<use images/cov_image.png>
+Package pdftex.def Info: images/cov_image.png  used on input line 493.
+(pdftex.def)             Requested size: 85.35774pt x 256.07324pt.
+
+Overfull \vbox (17.73434pt too high) detected at line 493
+ []
+
+[23
+
+]
+File: images/cov_image.png Graphic file (type png)
+<use images/cov_image.png>
+Package pdftex.def Info: images/cov_image.png  used on input line 493.
+(pdftex.def)             Requested size: 85.35774pt x 256.07324pt.
+
+Overfull \vbox (17.73434pt too high) detected at line 493
+ []
+
+[24
+
+] [25
+
+]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-8-1.pdf, id=332, 605.26125pt x 499.8675pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-8-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-8-1.pdf  used on input line 529.
+(pdftex.def)             Requested size: 291.07622pt x 240.39131pt.
+
+Overfull \vbox (35.84032pt too high) detected at line 529
+ []
+
+[26
+
+ <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-8-1.pdf>]
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 570.
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 570.
+
+LaTeX Font Info:    Font shape `T1/lmss/b/it' in size <5> not available
+(Font)              Font shape `T1/lmss/bx/it' tried instead on input line 570.
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <5> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 570.
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 570.
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 570.
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <7> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 570.
+
+LaTeX Font Info:    Font shape `T1/lmss/b/it' in size <10> not available
+(Font)              Font shape `T1/lmss/bx/it' tried instead on input line 570.
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 570.
+LaTeX Font Info:    Font shape `T1/lmss/b/it' in size <7> not available
+(Font)              Font shape `T1/lmss/bx/it' tried instead on input line 570.
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <7> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 570.
+[27
+
+] [28
+
+] [29
+
+]
+<images/covariogram.png, id=372, 554.67226pt x 474.573pt>
+File: images/covariogram.png Graphic file (type png)
+<use images/covariogram.png>
+Package pdftex.def Info: images/covariogram.png  used on input line 649.
+(pdftex.def)             Requested size: 273.95pt x 234.38936pt.
+[30
+
+ <./images/covariogram.png>]
+<images/semivariogram.png, id=381, 716.07526pt x 411.33675pt>
+File: images/semivariogram.png Graphic file (type png)
+<use images/semivariogram.png>
+Package pdftex.def Info: images/semivariogram.png  used on input line 662.
+(pdftex.def)             Requested size: 342.43382pt x 196.70505pt.
+
+Overfull \vbox (2.36241pt too high) detected at line 662
+ []
+
+[31
+
+ <./images/semivariogram.png>]
+<images/semivariogram_eq.png, id=391, 563.706pt x 505.89pt>
+File: images/semivariogram_eq.png Graphic file (type png)
+<use images/semivariogram_eq.png>
+Package pdftex.def Info: images/semivariogram_eq.png  used on input line 669.
+(pdftex.def)             Requested size: 256.83069pt x 230.48907pt.
+[32
+
+ <./images/semivariogram_eq.png>]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-11-1.pdf, id=400, 429.605pt x 498.86375pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-11-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-11-1.pdf  used on input line 673.
+(pdftex.def)             Requested size: 224.32016pt x 260.48393pt.
+
+Overfull \vbox (9.00378pt too high) detected at line 673
+ []
+
+[33
+
+ <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-11-1.pdf>] [34
+
+] [35
+
+] [36
+
+] [37
+
+]
+<images/plot_separability.png, id=444, 513.71925pt x 174.05025pt>
+File: images/plot_separability.png Graphic file (type png)
+<use images/plot_separability.png>
+Package pdftex.def Info: images/plot_separability.png  used on input line 754.
+(pdftex.def)             Requested size: 308.20256pt x 104.42032pt.
+[38
+
+ <./images/plot_separability.png>]
+File: images/plot_separability.png Graphic file (type png)
+<use images/plot_separability.png>
+Package pdftex.def Info: images/plot_separability.png  used on input line 754.
+(pdftex.def)             Requested size: 308.20256pt x 104.42032pt.
+[39
+
+] [40
+
+] [41
+
+] [42
+
+] [43
+
+] [44
+
+] [45
+
+] [46
+
+] [47
+
+] [48
+
+]
+<images/scheme_bayesien_2.png, id=519, 565.11125pt x 410.53375pt>
+File: images/scheme_bayesien_2.png Graphic file (type png)
+<use images/scheme_bayesien_2.png>
+Package pdftex.def Info: images/scheme_bayesien_2.png  used on input line 865.
+(pdftex.def)             Requested size: 156.48824pt x 113.68329pt.
+[49
+
+ <./images/scheme_bayesien_2.png (PNG copy)>]
+<images/gaussian_laplace.png, id=528, 397.485pt x 350.05782pt>
+File: images/gaussian_laplace.png Graphic file (type png)
+<use images/gaussian_laplace.png>
+Package pdftex.def Info: images/gaussian_laplace.png  used on input line 910.
+(pdftex.def)             Requested size: 142.26357pt x 125.28893pt.
+
+Overfull \vbox (0.63795pt too high) detected at line 910
+ []
+
+[50
+
+ <./images/gaussian_laplace.png>]
+File: images/gaussian_laplace.png Graphic file (type png)
+<use images/gaussian_laplace.png>
+Package pdftex.def Info: images/gaussian_laplace.png  used on input line 910.
+(pdftex.def)             Requested size: 142.26357pt x 125.28893pt.
+
+Overfull \vbox (0.63795pt too high) detected at line 910
+ []
+
+[51
+
+] [52
+
+]
+<sp_st_stats_M2_files/figure-beamer/Map the data-1.pdf, id=553, 689.57625pt x 431.6125pt>
+File: sp_st_stats_M2_files/figure-beamer/Map the data-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/Map the data-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/Map the data-1.pdf  used on input line 921.
+(pdftex.def)             Requested size: 342.44084pt x 214.33707pt.
+[53
+
+ <./sp_st_stats_M2_files/figure-beamer/Map the data-1.pdf>]
+<sp_st_stats_M2_files/figure-beamer/Create mesh-1.pdf, id=569, 689.57625pt x 431.6125pt>
+File: sp_st_stats_M2_files/figure-beamer/Create mesh-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/Create mesh-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/Create mesh-1.pdf  used on input line 926.
+(pdftex.def)             Requested size: 342.44084pt x 214.33707pt.
+[54
+
+ <./sp_st_stats_M2_files/figure-beamer/Create mesh-1.pdf>]
+\openout4 = `sp_st_stats_M2.vrb'.
+
+(./sp_st_stats_M2.vrb
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7.
+) [55
+
+]
+\openout4 = `sp_st_stats_M2.vrb'.
+
+(./sp_st_stats_M2.vrb) [56
+
+]
+\openout4 = `sp_st_stats_M2.vrb'.
+
+(./sp_st_stats_M2.vrb) [57
+
+]
+\openout4 = `sp_st_stats_M2.vrb'.
+
+(./sp_st_stats_M2.vrb)
+Overfull \vbox (42.85318pt too high) detected at line 1054
+ []
+
+[58
+
+]
+\openout4 = `sp_st_stats_M2.vrb'.
+
+(./sp_st_stats_M2.vrb
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <6> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 12.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 24.
+(/home/balglave/.TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+Overfull \vbox (0.2501pt too high) detected at line 1096
+ []
+
+[59
+
+{/home/balglave/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+\openout4 = `sp_st_stats_M2.vrb'.
+
+(./sp_st_stats_M2.vrb) [60
+
+]
+<sp_st_stats_M2_files/figure-beamer/Looking at prediction mean values-1.pdf, id=644, 691.58376pt x 431.6125pt>
+File: sp_st_stats_M2_files/figure-beamer/Looking at prediction mean values-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/Looking at prediction mean values-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/Looking at prediction mean values-1.pdf  used on input line 1132.
+(pdftex.def)             Requested size: 342.43526pt x 213.71141pt.
+[61
+
+ <./sp_st_stats_M2_files/figure-beamer/Looking at prediction mean values-1.pdf>]
+<sp_st_stats_M2_files/figure-beamer/Looking at prediction standard deviation-1.pdf, id=660, 694.595pt x 431.6125pt>
+File: sp_st_stats_M2_files/figure-beamer/Looking at prediction standard deviation-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/Looking at prediction standard deviation-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/Looking at prediction standard deviation-1.pdf  used on input line 1136.
+(pdftex.def)             Requested size: 342.44246pt x 212.78938pt.
+[62
+
+ <./sp_st_stats_M2_files/figure-beamer/Looking at prediction standard deviation-1.pdf>]
+<sp_st_stats_M2_files/figure-beamer/Looking at Residuals-1.pdf, id=675, 688.5725pt x 463.7325pt>
+File: sp_st_stats_M2_files/figure-beamer/Looking at Residuals-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/Looking at Residuals-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/Looking at Residuals-1.pdf  used on input line 1140.
+(pdftex.def)             Requested size: 342.4362pt x 230.6203pt.
+[63
+
+ <./sp_st_stats_M2_files/figure-beamer/Looking at Residuals-1.pdf>]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-13-1.pdf, id=691, 610.28pt x 402.50375pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-13-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-13-1.pdf  used on input line 1153.
+(pdftex.def)             Requested size: 342.44356pt x 225.85504pt.
+
+Overfull \vbox (26.57753pt too high) detected at line 1153
+ []
+
+[64
+
+ <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-13-1.pdf>]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-15-1.pdf, id=707, 720.6925pt x 496.85625pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-15-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-15-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-15-1.pdf  used on input line 1162.
+(pdftex.def)             Requested size: 308.18723pt x 212.4689pt.
+[65
+
+ <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-15-1.pdf>]
+<sp_st_stats_M2_files/figure-beamer/unnamed-chunk-16-1.pdf, id=722, 703.62875pt x 499.8675pt>
+File: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-16-1.pdf Graphic file (type pdf)
+<use sp_st_stats_M2_files/figure-beamer/unnamed-chunk-16-1.pdf>
+Package pdftex.def Info: sp_st_stats_M2_files/figure-beamer/unnamed-chunk-16-1.pdf  used on input line 1171.
+(pdftex.def)             Requested size: 308.18039pt x 218.93556pt.
+
+Overfull \vbox (0.78456pt too high) detected at line 1171
+ []
+
+[66
+
+ <./sp_st_stats_M2_files/figure-beamer/unnamed-chunk-16-1.pdf>] [67
+
+]
+<images/anistropy.png, id=747, 413.1435pt x 420.97275pt>
+File: images/anistropy.png Graphic file (type png)
+<use images/anistropy.png>
+Package pdftex.def Info: images/anistropy.png  used on input line 1231.
+(pdftex.def)             Requested size: 101.7033pt x 103.63062pt.
+<images/non_stationarity.png, id=748, 443.256pt x 438.438pt>
+File: images/non_stationarity.png Graphic file (type png)
+<use images/non_stationarity.png>
+Package pdftex.def Info: images/non_stationarity.png  used on input line 1231.
+(pdftex.def)             Requested size: 101.70325pt x 100.59776pt.
+
+Overfull \hbox (1.71591pt too wide) detected at line 1231
+\T1/lmss/bx/n/6 Y[] \OT1/lmss/m/n/6 = \T1/lmss/bx/n/6 M [] Y[] \OT1/lmss/m/n/6 + \T1/lmss/bx/n/6 M[] [] Y[] \OT1/lmss/m/n/6 + [][]
+ []
+
+<images/dyn_mod.png, id=749, 265.59225pt x 235.47975pt>
+File: images/dyn_mod.png Graphic file (type png)
+<use images/dyn_mod.png>
+Package pdftex.def Info: images/dyn_mod.png  used on input line 1231.
+(pdftex.def)             Requested size: 101.7042pt x 90.17311pt.
+[68
+
+ <./images/anistropy.PNG> <./images/non_stationarity.PNG> <./images/dyn_mod.PNG>] [69
+
+]
+<images/book_rinla_4.jpg, id=769, 1606.0pt x 2562.57375pt>
+File: images/book_rinla_4.jpg Graphic file (type jpg)
+<use images/book_rinla_4.jpg>
+Package pdftex.def Info: images/book_rinla_4.jpg  used on input line 1263.
+(pdftex.def)             Requested size: 85.35284pt x 136.19113pt.
+<images/book_rinla_3.jpg, id=770, 322.20375pt x 501.875pt>
+File: images/book_rinla_3.jpg Graphic file (type jpg)
+<use images/book_rinla_3.jpg>
+Package pdftex.def Info: images/book_rinla_3.jpg  used on input line 1263.
+(pdftex.def)             Requested size: 85.359pt x 132.95795pt.
+<images/book_rinla_1.jpg, id=771, 296.10625pt x 446.66875pt>
+File: images/book_rinla_1.jpg Graphic file (type jpg)
+<use images/book_rinla_1.jpg>
+Package pdftex.def Info: images/book_rinla_1.jpg  used on input line 1263.
+(pdftex.def)             Requested size: 85.35805pt x 128.76045pt.
+[70
+
+ <./images/book_rinla_4.jpg> <./images/book_rinla_3.jpg> <./images/book_rinla_1.jpg>] [71
+
+] [72
+
+]
+\tf@nav=\write8
+\openout8 = `sp_st_stats_M2.nav'.
+
+\tf@toc=\write9
+\openout9 = `sp_st_stats_M2.toc'.
+
+\tf@snm=\write10
+\openout10 = `sp_st_stats_M2.snm'.
+
+
+Package caption Warning: Unused \captionsetup[figure] on input line 153.
+See the caption package documentation for explanation.
+
+(./sp_st_stats_M2.aux)
+ ***********
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-09>
+ ***********
+Package rerunfilecheck Info: File `sp_st_stats_M2.out' has not changed.
+(rerunfilecheck)             Checksum: D08B9987B589CEAC052067852507618D;3352.
+Package logreq Info: Writing requests to 'sp_st_stats_M2.run.xml'.
+\openout1 = `sp_st_stats_M2.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 32783 strings out of 476227
+ 640418 string characters out of 5796382
+ 1950555 words of memory out of 5000000
+ 53931 multiletter control sequences out of 15000+600000
+ 695695 words of font info for 139 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 101i,15n,107p,687b,1741s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmib7.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss12.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/balglave/.TinyTeX/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on sp_st_stats_M2.pdf (72 pages, 15189643 bytes).
+PDF statistics:
+ 955 PDF objects out of 1000 (max. 8388607)
+ 678 compressed objects within 7 object streams
+ 169 named destinations out of 1000 (max. 500000)
+ 349 words of extra memory for PDF output out of 10000 (max. 10000000)
+
