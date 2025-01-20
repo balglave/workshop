@@ -1,6 +1,6 @@
 ---
 title: "Stats"
-date: "Décembre 2025"
+date: "Janvier 2025"
 author: "B. Alglave"
 output:
   beamer_presentation:
